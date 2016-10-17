@@ -38,8 +38,10 @@ public class EightQueen {
             for(int col=0; col<size+1; col++){
                 if(!place(row,col)){
                     Block tempBlock = new Block(row, col);
+                    System.out.println(tempBlock);
                     board.add(tempBlock);
                     place_queen(row+1);
+                    System.out.println(tempBlock);
                     board.remove(tempBlock);
                 }
             }
