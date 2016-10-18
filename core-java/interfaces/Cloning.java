@@ -4,14 +4,14 @@ public class Cloning {
         Employee e1 = new Employee(1, new Date(1,2,1994));
         Employee e2 = e1.clone();
 
-        System.out.println(e1);
-        System.out.println(e2);
+        System.out.println(e1.hashCode());
+        System.out.println(e2.hashCode());
 
         EmployeeDeep ed1 = new EmployeeDeep(1, new Date(1,2,1994));
         EmployeeDeep ed2 = ed1.clone();
 
-        System.out.println(ed1);
-        System.out.println(ed2);
+        System.out.println(ed1.hashCode());
+        System.out.println(ed2.hashCode());
 
     }
 }
