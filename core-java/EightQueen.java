@@ -25,6 +25,7 @@ public class EightQueen {
 
     // Place queen on board and print board after finished
     public static void place_queen(int row){
+        int column = 0;
         if(row>size){
             number++;
             System.out.print(number + ": [");
@@ -35,21 +36,27 @@ public class EightQueen {
             System.out.print("]");
             System.out.println();
         }else{
-            for(int col=0; col<size+1; col++){
+            boolean placed = false;
+            for(int col=column; col<size+1; col++){
                 if(!place(row,col)){
                     Block tempBlock = new Block(row, col);
-                    System.out.println(tempBlock);
+                    // System.out.println(tempBlock);
                     board.add(tempBlock);
+                    placed = true;
                     place_queen(row+1);
-                    System.out.println(tempBlock);
+                    // System.out.println(tempBlock);
                     board.remove(tempBlock);
+                    placed = false;
                 }
+            }
+            if(!placed && row==1){
+                column++;
             }
         }
     }
 
     public static void main(String args[]){
-        place_queen(1);
+        place_queen(0);
     }
 }
 

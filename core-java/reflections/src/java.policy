@@ -1,0 +1,9 @@
+
+// Standard extensions get all permissions by default
+
+// default permissions granted to all domains
+
+grant {
+
+};
+
