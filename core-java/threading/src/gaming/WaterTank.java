@@ -35,8 +35,6 @@ public class WaterTank extends Frame implements Runnable {
         useWater.setName("UW");
         controller.setName("CN");
 
-        controller.setDaemon(true);
-
         pourWater.start();
         useWater.start();
         controller.start();
@@ -80,10 +78,14 @@ public class WaterTank extends Frame implements Runnable {
         } else if (currentThread.getName().equals("CN")) {
             while (true) {
                 if (y < 140) {
-                    pourWater.suspend();
+                    synchronized (this) {
+                        pourWater.suspend();
+                    }
                     System.out.println("suspended" + " " + y + " " + height);
                 } else {
-                    pourWater.resume();
+                    synchronized (this) {
+                        pourWater.resume();
+                    }
                     System.out.println("resumed");
                 }
                 repaint();
