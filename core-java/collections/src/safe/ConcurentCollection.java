@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 public class ConcurentCollection {
     public static ArrayList<Integer> arrayList;
+    // public static CopyOnWriteArrayList<Integer> carrayList;
 
     static {
         arrayList = new ArrayList<>();
@@ -35,8 +36,8 @@ public class ConcurentCollection {
             @Override
             public void run() {
                 while (true) {
-                    arrayList.add(-1);
-                    System.out.println("Inserted -1");
+                    arrayList.add(1);
+                    System.out.println("added 1");
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
