@@ -34,14 +34,12 @@ class BloodPressureManager {
     }
 
     class HighBloodPressureListener implements BloodPressureListener {
-
         @Override
         public boolean checkBloodPressure(int value) {
             if (value > 140)
                 return true;
             return false;
         }
-
     }
 
     interface BloodPressureListener {

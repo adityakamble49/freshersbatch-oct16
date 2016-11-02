@@ -55,6 +55,7 @@ public class Nqueen {
                                         // + c + " - " + d + " - " + e + " -
                                         // " + f + " - " + g + " - " + h);
                                         i++;
+
                                     }
                                 }
                             }
@@ -76,7 +77,7 @@ public class Nqueen {
         ArrayList<Future<String>> answersList = new ArrayList<>();
         for (int a = 0; a <= 7; a++) {
             for (int b = 0; b <= 7; b++) {
-                answersList.add(es.submit(new RunLoops(a,b)));
+                answersList.add(es.submit(new RunLoops(a, b)));
             }
         }
 
