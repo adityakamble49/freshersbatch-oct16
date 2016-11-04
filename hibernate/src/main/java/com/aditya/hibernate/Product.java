@@ -3,9 +3,11 @@ package com.aditya.hibernate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @NamedQueries({ @NamedQuery(name = "getAllProducts", query = "from Product")
@@ -16,7 +18,8 @@ import javax.persistence.Table;
 public class Product {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
+    @SequenceGenerator(name = "product_seq", sequenceName = "pseq", allocationSize = 1)
     @Column(name = "p_id")
     private Long id;
 
@@ -24,12 +27,12 @@ public class Product {
     private String name;
 
     @Column(name = "cost")
-    private double price;
+    private float price;
 
     public Product() {
     }
 
-    public Product(String name, double price) {
+    public Product(String name, float price) {
         this.name = name;
         this.price = price;
     }
@@ -54,7 +57,7 @@ public class Product {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

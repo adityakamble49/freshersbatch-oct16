@@ -18,7 +18,7 @@ public class DatabaseOperations {
 
         // CREATE
         Session session_1 = sessionFactory.openSession();
-        Product p1 = new Product("Desktop PC", 41000.0);
+        Product p1 = new Product("Desktop PC", 41000);
         Transaction transaction = session_1.beginTransaction();
         session_1.save(p1);
         long id = p1.getId();
@@ -45,8 +45,8 @@ public class DatabaseOperations {
         Session session_4 = sessionFactory.openSession();
         Transaction transaction3 = session_4.beginTransaction();
         Product p3 = session_4.get(Product.class, id - 1);
-        session_4.delete(p3);
-        transaction3.commit();
+        // session_4.delete(p3);
+        // transaction3.commit();
         session_4.close();
     }
 }
