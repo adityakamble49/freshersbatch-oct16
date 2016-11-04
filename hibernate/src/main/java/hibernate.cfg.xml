@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
           "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">	
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
 
-<session-factory>
+	<session-factory>
 		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
 		<property name="connection.username">system</property>
@@ -18,9 +18,15 @@
 		<property name="hibernate.c3p0.min_size">5</property>
 		<property name="hibernate.c3p0.max_size">20</property>
 
-		<mapping class="com.aditya.hibernate.Product"/>
-		<mapping class="com.aditya.hibernate.Employee"/>
+		<mapping class="com.aditya.hibernate.Product" />
+		<mapping class="com.aditya.hibernate.Employee" />
+		<mapping class="com.aditya.mapping.Customer" />
+		<mapping class="com.aditya.mapping.Enquiry" />
+		<mapping class="com.aditya.mapping.Market" />
+		<mapping class="com.aditya.mapping.Stock" />
+		<mapping class="com.aditya.mapping.Student" />
+		<mapping class="com.aditya.mapping.Course" />
 
 
-</session-factory>
+	</session-factory>
 </hibernate-configuration>
