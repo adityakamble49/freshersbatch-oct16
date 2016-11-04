@@ -22,6 +22,7 @@ public class DCriteria {
         configuration.configure("hibernate.cfg.xml");
         sessionFactory = configuration.buildSessionFactory();
 
+        listEmployees();
         getTotalSalary();
         orderEmployees();
         orderEmployeesHQL();
@@ -103,7 +104,7 @@ public class DCriteria {
 
         Session session = sessionFactory.openSession();
 
-        Query selectQuery = session.createQuery("from Product");
+        Query selectQuery = session.createQuery("from Employee");
         List<Product> plist = selectQuery.list();
         System.out.println(plist);
         session.close();
