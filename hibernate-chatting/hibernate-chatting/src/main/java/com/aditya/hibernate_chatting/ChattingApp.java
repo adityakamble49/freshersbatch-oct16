@@ -7,7 +7,11 @@ public class ChattingApp {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        Persistence persistence = new DatabasePersistence();
+
+        PersistenceFactory persistenceFactory = PersistenceFactory
+                .getInstance();
+        Persistence persistence = persistenceFactory
+                .getPersistence(PersistenceType.DATABASE);
         persistence.openPersistence();
 
         int mainChoice = 1;
