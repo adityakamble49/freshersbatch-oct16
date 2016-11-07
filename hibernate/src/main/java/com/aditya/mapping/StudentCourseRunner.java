@@ -20,9 +20,9 @@ public class StudentCourseRunner {
         configuration.configure("hibernate.cfg.xml");
         sessionFactory = configuration.buildSessionFactory();
 
-        // addStudent();
-        // readStudents();
-        // updateStudent();
+        //addStudent();
+        //readStudents();
+        //updateStudent();
         deleteStudent();
         sessionFactory.close();
     }
