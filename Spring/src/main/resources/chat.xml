@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+
+	<bean id="user_aditya" class="com.aditya.spring.chat.User">
+		<property name="id" value="1" />
+		<property name="username" value="aditya" />
+		<property name="password" value="aditya" />
+		<property name="chatroom" ref="linux_room" />
+	</bean>
+
+	<bean id="user_akshay" class="com.aditya.spring.chat.User">
+		<property name="id" value="2" />
+		<property name="username" value="akshay" />
+		<property name="password" value="akshay" />
+		<property name="chatroom" ref="linux_room" />
+	</bean>
+
+	<bean id="message_1" class="com.aditya.spring.chat.Message">
+		<property name="id" value="1" />
+		<property name="message" value="aditya : hello_akshay" />
+		<property name="chatroom" ref="linux_room" />
+	</bean>
+
+	<bean id="message_2" class="com.aditya.spring.chat.Message">
+		<property name="id" value="2" />
+		<property name="message" value="akshay : hello_aditya" />
+		<property name="chatroom" ref="linux_room" />
+	</bean>
+
+	<bean id="linux_room" class="com.aditya.spring.chat.Chatroom">
+		<property name="id" value="1" />
+		<property name="name" value="linux-room" />
+		<property name="userList">
+			<set>
+				<ref bean="user_aditya" />
+				<ref bean="user_akshay" />
+			</set>
+		</property>
+		<property name="messageList">
+			<set>
+				<ref bean="message_1" />
+				<ref bean="message_2" />
+			</set>
+		</property>
+	</bean>
+
+	<bean id="user_abc" class="com.aditya.spring.chat.User">
+		<property name="id" value="1" />
+		<property name="username" value="abc" />
+		<property name="password" value="abc" />
+		<property name="chatroom" ref="android_room" />
+	</bean>
+
+	<bean id="message_3" class="com.aditya.spring.chat.Message">
+		<property name="id" value="1" />
+		<property name="message" value="abc : hii" />
+		<property name="chatroom" ref="android_room" />
+	</bean>
+
+	<bean id="android_room" class="com.aditya.spring.chat.Chatroom">
+		<property name="id" value="1" />
+		<property name="name" value="android-chatroom" />
+		<property name="userList">
+			<set>
+				<ref bean="user_abc" />
+			</set>
+		</property>
+		<property name="messageList">
+			<set>
+				<ref bean="message_3" />
+			</set>
+		</property>
+	</bean>
+
+</beans>
