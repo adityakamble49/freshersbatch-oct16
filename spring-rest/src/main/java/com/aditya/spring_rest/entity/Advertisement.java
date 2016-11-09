@@ -5,6 +5,7 @@ import java.util.List;
 public class Advertisement {
 
     private Integer id;
+    private Integer userId;
     private String title;
     private String category;
     private String description;
@@ -13,10 +14,11 @@ public class Advertisement {
     public Advertisement() {
     }
 
-    public Advertisement(Integer id, String title, String category,
-            String description, List<String> photos) {
+    public Advertisement(Integer id, Integer userId, String title,
+            String category, String description, List<String> photos) {
         super();
         this.id = id;
+        this.userId = userId;
         this.title = title;
         this.category = category;
         this.description = description;
@@ -29,6 +31,14 @@ public class Advertisement {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {
@@ -65,9 +75,9 @@ public class Advertisement {
 
     @Override
     public String toString() {
-        return "Advertisement [id=" + id + ", title=" + title + ", category="
-                + category + ", description=" + description + ", photos="
-                + photos + "]";
+        return "Advertisement [id=" + id + ", userId=" + userId + ", title="
+                + title + ", category=" + category + ", description="
+                + description + ", photos=" + photos + "]";
     }
 
 }

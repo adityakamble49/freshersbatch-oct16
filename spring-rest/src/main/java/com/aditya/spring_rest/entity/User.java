@@ -17,6 +17,11 @@ public class User {
     public User() {
     }
 
+    public User(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
     public User(Integer id, String firstName, String lastName, String userName,
             String password, String email, String phoneNumber,
             List<Advertisement> advertiesments, List<String> messages) {
@@ -56,12 +61,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getUsername() {
+    public String getUserName() {
         return userName;
     }
 
-    public void setUsername(String username) {
-        this.userName = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -107,7 +112,7 @@ public class User {
     @Override
     public String toString() {
         return "User [id=" + id + ", firstName=" + firstName + ", lastName="
-                + lastName + ", username=" + userName + ", password=" + password
+                + lastName + ", userName=" + userName + ", password=" + password
                 + ", email=" + email + ", phoneNumber=" + phone
                 + ", advertiesments=" + advertiesments + ", messages="
                 + messages + "]";
