@@ -1,18 +1,46 @@
-package com.aditya.spring_rest.entity;
+package com.aditya.spring_rest_hibernate.entity;
 
-import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "USERS")
 public class User {
 
+    @Id
+    @GeneratedValue
+    @Column(name = "user_id")
     private Integer id;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "username")
     private String userName;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "phone")
     private String phone;
-    private List<Advertisement> advertiesments;
-    private List<String> messages;
+
+    @OneToMany(mappedBy = "user", cascade = {
+            CascadeType.ALL }, fetch = FetchType.LAZY)
+    private Set<Advertise> advertiseSet;
 
     public User() {
     }
@@ -20,21 +48,6 @@ public class User {
     public User(String userName, String password) {
         this.userName = userName;
         this.password = password;
-    }
-
-    public User(Integer id, String firstName, String lastName, String userName,
-            String password, String email, String phoneNumber,
-            List<Advertisement> advertiesments, List<String> messages) {
-        super();
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
-        this.phone = phoneNumber;
-        this.advertiesments = advertiesments;
-        this.messages = messages;
     }
 
     public Integer getId() {
@@ -85,37 +98,28 @@ public class User {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phone = phoneNumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public List<Advertisement> getAdvertiesments() {
-        return advertiesments;
+    public Set<Advertise> getAdvertiseSet() {
+        return advertiseSet;
     }
 
-    public void setAdvertiesments(List<Advertisement> advertiesments) {
-        this.advertiesments = advertiesments;
-    }
-
-    public List<String> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<String> messages) {
-        this.messages = messages;
+    public void setAdvertiseSet(Set<Advertise> advertiseSet) {
+        this.advertiseSet = advertiseSet;
     }
 
     @Override
     public String toString() {
         return "User [id=" + id + ", firstName=" + firstName + ", lastName="
                 + lastName + ", userName=" + userName + ", password=" + password
-                + ", email=" + email + ", phoneNumber=" + phone
-                + ", advertiesments=" + advertiesments + ", messages="
-                + messages + "]";
+                + ", email=" + email + ", phone=" + phone + ", advertiseSet="
+                + advertiseSet + "]";
     }
 
 }
